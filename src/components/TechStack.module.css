@@ -1,0 +1,61 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.4rem;
+}
+
+.groupLabel {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 0.9rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chip {
+  padding: 0.28rem 0.75rem;
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  cursor: default;
+  transition: all 0.18s;
+  border: 1px solid;
+}
+
+/* pink */
+.chip_a { background: #fde8f0; color: #c94f7c; border-color: #f5b8cf; }
+.chip_a:hover { background: #fad0e3; }
+/* lila */
+.chip_b { background: #f0eaff; color: #7c4fbb; border-color: #d4b8f5; }
+.chip_b:hover { background: #e4d6ff; }
+/* mint */
+.chip_c { background: #e8f5f0; color: #2d7a60; border-color: #a8ddc9; }
+.chip_c:hover { background: #d0eddf; }
+/* peach */
+.chip_d { background: #fff3e8; color: #9a5a20; border-color: #f5cfa0; }
+.chip_d:hover { background: #ffe8cc; }
+
+/* night overrides */
+:global(body.night) .chip_a { background: rgba(201,79,124,0.18); color: #f7a8c4; border-color: rgba(201,79,124,0.35); }
+:global(body.night) .chip_b { background: rgba(124,79,187,0.18); color: #c8a8f5; border-color: rgba(124,79,187,0.35); }
+:global(body.night) .chip_c { background: rgba(45,122,96,0.18);  color: #80d4b8; border-color: rgba(45,122,96,0.35);  }
+:global(body.night) .chip_d { background: rgba(154,90,32,0.18);  color: #f5c080; border-color: rgba(154,90,32,0.35);  }
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,72 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 2rem;
+  background: rgba(255, 248, 249, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+:global(body.night) .nav {
+  background: rgba(26, 13, 18, 0.88);
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--pink-deep);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  align-items: center;
+}
+
+.link {
+  color: var(--text3);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--pink-deep);
+}
+
+.themeBtn {
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  padding: 0.28rem 0.85rem;
+  font-size: 0.7rem;
+  font-family: var(--mono);
+  color: var(--mauve);
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.themeBtn:hover {
+  background: var(--pink-pale);
+  border-color: var(--pink);
+  color: var(--pink-deep);
+}
+
+@media (max-width: 640px) {
+  .links { gap: 0.9rem; }
+  .link  { display: none; }
+}
