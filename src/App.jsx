@@ -1,12 +1,12 @@
 import { useTheme } from './hooks/useTheme'
-import StarCanvas    from './components/StarCanvas'
-import Navbar        from './components/Navbar'
-import Hero          from './components/Hero'
-import About         from './components/About'
-import TechStack     from './components/TechStack'
-import Projects      from './components/Projects'
-import Experience    from './components/Experience'
-import Contact       from './components/Contact'
+import StarCanvas from './components/StarCanvas'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import About from './components/About'
+import TechStack from './components/TechStack'
+import Projects from './components/Projects'
+import Experience from './components/Experience'
+import Contact from './components/Contact'
 
 export default function App() {
   const { night, toggleTheme } = useTheme()
@@ -41,7 +41,7 @@ export default function App() {
         position: 'relative',
         zIndex: 1,
       }}>
-        sevgiyle yapıldı · rumeysa küçük · 2025 ✦
+        rumeysa küçük · 2026 ✦
       </footer>
     </>
   )
