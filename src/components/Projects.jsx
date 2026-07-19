@@ -12,12 +12,41 @@ const LANG_COLORS = {
   HTML:       '#e8a0a0',
   CSS:        '#a0b4e8',
   Vue:        '#80c8a0',
+  React:      '#6baed6',
+  Django:     '#092e20',
   default:    '#c8a0b8',
 }
 
 function getLangColor(lang) {
   return LANG_COLORS[lang] ?? LANG_COLORS.default
 }
+
+const FEATURED_PROJECTS = [
+  {
+    id: 'featured-1',
+    name: 'Şef Kebap — QR Menü Sistemi',
+    html_url: 'https://github.com/kucukrumeysa/sefkebap-qr',
+    description: 'Müşteriye teslim edilen QR menü sistemi. Django kullanılarak geliştirildi, admin panelinden anlık menü ve görsel değişiklikleri yapılabiliyor.',
+    language: 'Django',
+    stargazers_count: 0
+  },
+  {
+    id: 'featured-2',
+    name: 'Şef Kebap — Restoran Web Sitesi',
+    html_url: 'https://github.com/birbucukformula-Web/sef_kebab',
+    description: 'Müşteriye teslim edilen restoran web sitesi. React ve Vite kullanılarak geliştirildi (Frontend).',
+    language: 'React',
+    stargazers_count: 0
+  },
+  {
+    id: 'featured-3',
+    name: '1.5 Adana Formula Student Web Sitesi',
+    html_url: 'https://github.com/birbucukformula-Web/Deneme-bolgesi',
+    description: 'Takımın resmi web sitesi. Taslak mimarisi tarafımca hazırlandı, React ve Vite ile ekip olarak görsel geliştirmeleri devam ediyor.',
+    language: 'React',
+    stargazers_count: 0
+  }
+]
 
 function ExternalIcon() {
   return (
@@ -47,71 +76,87 @@ function SkeletonCard() {
   )
 }
 
+function ProjectCard({ repo }) {
+  return (
+    <a
+      href={repo.html_url}
+      target="_blank"
+      rel="noreferrer"
+      className={styles.card}
+    >
+      <div className={styles.cardHeader}>
+        <div className={styles.repoName}>
+          {repo.name.replace(/-/g, ' ')}
+        </div>
+        <span className={styles.extIcon}><ExternalIcon /></span>
+      </div>
+
+      <p className={styles.desc}>
+        {repo.description
+          ? repo.description.slice(0, 115) + (repo.description.length > 115 ? '…' : '')
+          : <em>Açıklama yok</em>
+        }
+      </p>
+
+      <div className={styles.cardFooter}>
+        {repo.language && (
+          <>
+            <span
+              className={styles.dot}
+              style={{ background: getLangColor(repo.language) }}
+            />
+            <span className={styles.lang}>{repo.language}</span>
+          </>
+        )}
+        {repo.stargazers_count > 0 && (
+          <span className={styles.stars} style={{ marginLeft: 'auto' }}>
+            <StarIcon /> {repo.stargazers_count}
+          </span>
+        )}
+      </div>
+    </a>
+  )
+}
+
 export default function Projects() {
   const ref = useReveal()
   const { repos, loading, error } = useGitHubRepos()
+
+  // Featured projelerde olanları GitHub listesinden çıkar (tekrarlanmasın)
+  const filteredRepos = repos.filter(
+    (r) => !FEATURED_PROJECTS.some((fp) => fp.html_url === r.html_url)
+  )
 
   return (
     <section id="projects">
       <div className="section-wrapper">
         <div className="reveal" ref={ref}>
           <p className="section-label">03 — projeler</p>
-          <h2 className="section-title">GitHub'dan otomatik</h2>
+          <h2 className="section-title">Öne Çıkanlar &amp; Tüm Repolar</h2>
           <p className={styles.sub}>
-            github.com/kucukrumeysa · en son push yapılan en başta
+            Teslim edilen projeler ve github.com/kucukrumeysa
           </p>
 
           <div className={styles.grid}>
-            {loading && Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)}
+            {/* Önce elle eklenen (Featured) projeleri göster */}
+            {FEATURED_PROJECTS.map(repo => (
+              <ProjectCard key={repo.id} repo={repo} />
+            ))}
+
+            {loading && Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={`skel-${i}`} />)}
 
             {!loading && error && (
               <p className={styles.error}>
-                GitHub API'den repolar yüklenemedi. Tüm projeler için:{' '}
+                GitHub API'den diğer repolar yüklenemedi.{' '}
                 <a href="https://github.com/kucukrumeysa" target="_blank" rel="noreferrer">
-                  github.com/kucukrumeysa
+                  Profili gör
                 </a>
               </p>
             )}
 
-            {!loading && !error && repos.map(repo => (
-              <a
-                key={repo.id}
-                href={repo.html_url}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.card}
-              >
-                <div className={styles.cardHeader}>
-                  <div className={styles.repoName}>
-                    {repo.name.replace(/-/g, ' ')}
-                  </div>
-                  <span className={styles.extIcon}><ExternalIcon /></span>
-                </div>
-
-                <p className={styles.desc}>
-                  {repo.description
-                    ? repo.description.slice(0, 95) + (repo.description.length > 95 ? '…' : '')
-                    : <em>Açıklama yok</em>
-                  }
-                </p>
-
-                <div className={styles.cardFooter}>
-                  {repo.language && (
-                    <>
-                      <span
-                        className={styles.dot}
-                        style={{ background: getLangColor(repo.language) }}
-                      />
-                      <span className={styles.lang}>{repo.language}</span>
-                    </>
-                  )}
-                  {repo.stargazers_count > 0 && (
-                    <span className={styles.stars} style={{ marginLeft: 'auto' }}>
-                      <StarIcon /> {repo.stargazers_count}
-                    </span>
-                  )}
-                </div>
-              </a>
+            {/* Sonra GitHub'dan gelenleri göster */}
+            {!loading && !error && filteredRepos.map(repo => (
+              <ProjectCard key={repo.id} repo={repo} />
             ))}
           </div>
         </div>
@@ -119,3 +164,4 @@ export default function Projects() {
     </section>
   )
 }
+
