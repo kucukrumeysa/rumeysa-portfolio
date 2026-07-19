@@ -1,3 +1,4 @@
+import { useReveal } from '../hooks/useReveal'
 import FloatingPetals from './FloatingPetals'
 import styles from './Hero.module.css'
 
@@ -33,10 +34,12 @@ const socials = [
 ]
 
 export default function Hero() {
+  const ref = useReveal()
+
   return (
     <section id="hero" className={styles.hero}>
       <FloatingPetals />
-      <div className={styles.content}>
+      <div className={`reveal ${styles.content}`} ref={ref}>
         <p className={styles.tag}>// yazılım geliştirici · adana, tr</p>
         <h1 className={styles.name}>
           Rumeysa
