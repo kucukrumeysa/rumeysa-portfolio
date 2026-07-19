@@ -94,9 +94,14 @@ a {
 }
 
 .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
   opacity: 1;
   transform: none;
-  transition: none;
 }
 
 @keyframes fadeUp {

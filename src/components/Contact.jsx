@@ -1,3 +1,4 @@
+import { useReveal } from '../hooks/useReveal'
 import styles from './Contact.module.css'
 
 const links = [
@@ -32,15 +33,19 @@ const links = [
 ]
 
 export default function Contact() {
+  const ref = useReveal()
+
   return (
     <section id="contact">
       <div className="section-wrapper">
-        <div>
+        <div className="reveal" ref={ref}>
           <p className="section-label">05 — iletişim</p>
           <h2 className="section-title">Bağlantı kuralım</h2>
           <div className={styles.inner}>
             <p className={styles.text}>
-              Staj, iş birliği ve ilginç projeler için açığım.İletişim için linkedin veya e-posta üzerinden ulaşabilirsiniz. En güncel projelerim ve paylaşımlarım için GitHub'ımı takipte kalın!
+              Staj, iş birliği ve ilginç projeler için açığım.
+              Aklında bir şey varsa ya da sadece teknoloji konuşmak istersen —
+              duymaktan memnuniyet duyarım.
             </p>
             <div className={styles.links}>
               {links.map(l => (

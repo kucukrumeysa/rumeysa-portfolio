@@ -1,3 +1,4 @@
+import { useReveal } from '../hooks/useReveal'
 import styles from './Experience.module.css'
 
 const certs = [
@@ -9,19 +10,22 @@ const certs = [
 ]
 
 export default function Experience() {
+  const ref = useReveal()
+
   return (
     <section id="experience">
       <div className="section-wrapper">
-        <div>
+        <div className="reveal" ref={ref}>
           <p className="section-label">04 — deneyim</p>
           <h2 className="section-title">Nerede katkı sağladım</h2>
 
           <div className={styles.block}>
-            <div className={styles.role}>Web Birim Kaptanı</div>
+            <div className={styles.role}>Web Takımı Üyesi</div>
             <div className={styles.org}>1.5 Adana Formula Student Kulübü</div>
-            <div className={styles.date}>2026 — Günümüz · Aktif</div>
+            <div className={styles.date}>2023 — Günümüz · Aktif</div>
             <div className={styles.desc}>
-              Formula Student mühendislik kulübü bünyesindeki yazılım birimi bünyesinde web geliştirme ekibi kaptanıyım. React ve Vite ile geliştirilen ve müşteriye teslim edilen Şef Kebap
+              Formula Student mühendislik kulübü bünyesindeki web geliştirme takımının aktif
+              üyesiyim. React ve Vite ile geliştirilen ve müşteriye teslim edilen Şef Kebap
               restoran web sitesi dahil gerçek projelerde çalıştım.
             </div>
           </div>

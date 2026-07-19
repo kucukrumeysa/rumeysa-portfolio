@@ -1,33 +1,36 @@
+import { useReveal } from '../hooks/useReveal'
 import styles from './TechStack.module.css'
 
 const groups = [
   {
     label: 'Frontend',
     variant: 'a',
-    chips: ['React', 'Vite', 'HTML5', 'CSS3', 'REST API Entegrasyonu'],
+    chips: ['React', 'Vite', 'HTML5', 'CSS3'],
   },
   {
     label: 'Backend & Veri',
     variant: 'b',
-    chips: ['.NET / C#', 'Django', 'Python', 'Kotlin', 'Spring Boot', 'SQL', 'Java'],
+    chips: ['.NET / C#', 'Kotlin', 'Spring Boot', 'SQL', 'Python', 'Java'],
   },
   {
     label: 'Araçlar & İlgi',
     variant: 'c',
-    chips: ['Git', 'Gemini API', 'SPSS', 'Kali Linux', 'Pygame', 'OpenGL'],
+    chips: ['Git', 'SPSS', 'Gemini API', 'Kali Linux', 'Pygame', 'OpenGL'],
   },
   {
     label: 'Öğreniliyor',
     variant: 'd',
-    chips: ['R', 'Verilog'],
+    chips: ['React (derinleşiyor)', 'R', 'Verilog'],
   },
 ]
 
 export default function TechStack() {
+  const ref = useReveal()
+
   return (
     <section id="stack">
       <div className="section-wrapper">
-        <div>
+        <div className="reveal" ref={ref}>
           <p className="section-label">02 — teknoloji</p>
           <h2 className="section-title">Ne kullandığım</h2>
           <div className={styles.grid}>

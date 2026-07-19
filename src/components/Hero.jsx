@@ -45,8 +45,8 @@ export default function Hero() {
         <p className={styles.role}>Full Stack Developer</p>
         <p className={styles.bio}>
           Çukurova Üniversitesi Bilgisayar Bilimleri öğrencisi.
-          React, .NET ve Django ile full stack uygulamalar geliştiriyor;
-          AI entegrasyonu alanlarını keşfediyorum.
+          .NET ve React ile web uygulamaları geliştiriyor,
+          siber güvenlik ve veri analizi alanlarını keşfediyorum.
         </p>
         <div className={styles.socials}>
           {socials.map(s => (

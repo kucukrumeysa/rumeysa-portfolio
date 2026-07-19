@@ -22,6 +22,14 @@ export default function FloatingPetals() {
 
   return (
     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
+      <style>{`
+        @keyframes floatPetal {
+          0%   { opacity: 0; transform: var(--rot0) translateY(-20px); }
+          10%  { opacity: 0.18; }
+          90%  { opacity: 0.12; }
+          100% { opacity: 0; transform: var(--rot1) translateY(110vh); }
+        }
+      `}</style>
       {petals.map(p => (
         <div
           key={p.id}
@@ -33,8 +41,10 @@ export default function FloatingPetals() {
             top: p.top,
             background: p.color,
             borderRadius: '50% 0 50% 0',
-            opacity: 0.15,
-            transform: `rotate(${p.rotate})`,
+            opacity: 0.18,
+            '--rot0': `rotate(${p.rotate})`,
+            '--rot1': `rotate(calc(${p.rotate} + 360deg))`,
+            animation: `floatPetal ${p.duration} ${p.delay} linear infinite`,
           }}
         />
       ))}

@@ -1,5 +1,6 @@
 import { useTheme } from './hooks/useTheme'
 import StarCanvas    from './components/StarCanvas'
+import Navbar        from './components/Navbar'
 import Hero          from './components/Hero'
 import About         from './components/About'
 import TechStack     from './components/TechStack'
@@ -13,25 +14,7 @@ export default function App() {
   return (
     <>
       <StarCanvas night={night} />
-      <button
-        onClick={toggleTheme}
-        aria-label="toggle theme"
-        style={{
-          position: 'fixed',
-          top: 16,
-          right: 16,
-          zIndex: 200,
-          padding: '0.45rem 0.8rem',
-          borderRadius: 999,
-          border: '1px solid var(--border2)',
-          background: 'var(--surface)',
-          color: 'var(--text2)',
-          fontFamily: 'var(--mono)',
-          cursor: 'pointer'
-        }}
-      >
-        {night ? '☀ gündüz' : '☽ gece'}
-      </button>
+      <Navbar night={night} onToggle={toggleTheme} />
 
       <main>
         <Hero />
@@ -58,7 +41,7 @@ export default function App() {
         position: 'relative',
         zIndex: 1,
       }}>
-       rumeysa küçük · 2026 ✦
+        sevgiyle yapıldı · rumeysa küçük · 2025 ✦
       </footer>
     </>
   )
