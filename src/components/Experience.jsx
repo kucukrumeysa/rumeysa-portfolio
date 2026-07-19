@@ -19,14 +19,25 @@ export default function Experience() {
           <p className="section-label">04 — deneyim</p>
           <h2 className="section-title">Nerede katkı sağladım</h2>
 
-          <div className={styles.block}>
-            <div className={styles.role}>Web Takımı Üyesi</div>
-            <div className={styles.org}>1.5 Adana Formula Student Kulübü</div>
-            <div className={styles.date}>2023 — Günümüz · Aktif</div>
-            <div className={styles.desc}>
-              Formula Student mühendislik kulübü bünyesindeki web geliştirme takımının aktif
-              üyesiyim. React ve Vite ile geliştirilen ve müşteriye teslim edilen Şef Kebap
-              restoran web sitesi dahil gerçek projelerde çalıştım.
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className={styles.block}>
+              <div className={styles.role}>Yazılım Stajyeri</div>
+              <div className={styles.org}>Ziraat Bankası</div>
+              <div className={styles.date}>6 Temmuz — 10 Ağustos 2026 (1 Ay)</div>
+              <div className={styles.desc}>
+                Bankacılık sektöründe kullanılan yazılımların süreçlerini ve veri akışlarını gözlemleyerek, gerçek bir kurumsal sistemin nasıl işlediğine dair pratik bilgi edindim.
+              </div>
+            </div>
+
+            <div className={styles.block}>
+              <div className={styles.role}>Web Takımı Üyesi</div>
+              <div className={styles.org}>1.5 Adana Formula Student Kulübü</div>
+              <div className={styles.date}>Mart 2026 — Günümüz · Aktif</div>
+              <div className={styles.desc}>
+                Formula Student mühendislik kulübü bünyesindeki web geliştirme takımının aktif
+                üyesiyim. React ve Vite ile geliştirilen ve müşteriye teslim edilen Şef Kebap
+                restoran web sitesi dahil gerçek projelerde çalıştım.
+              </div>
             </div>
           </div>
 
