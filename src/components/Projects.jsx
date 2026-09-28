@@ -45,6 +45,46 @@ const FEATURED_PROJECTS = [
     description: 'Takımın resmi web sitesi. Taslak mimarisi tarafımca hazırlandı, React ve Vite ile ekip olarak görsel geliştirmeleri devam ediyor.',
     language: 'React',
     stargazers_count: 0
+  },
+  {
+    id: 'featured-4',
+    name: 'Cebeci İş Makineleri Web Sitesi',
+    html_url: 'https://github.com/kucukrumeysa/cebeci-is-makineleri-web',
+    description: 'İş makineleri sektörü için tasarlanmış, online katalog ve WhatsApp teklif entegrasyonu sunan kurumsal web sitesi.',
+    language: 'TypeScript',
+    stargazers_count: 0
+  },
+  {
+    id: 'featured-5',
+    name: 'TMDB Film Arama Uygulaması',
+    html_url: 'https://github.com/kucukrumeysa/movies',
+    description: 'React ve TMDB API kullanılarak geliştirilmiş, anlık veri çeken film arama ve favorilere ekleme uygulaması.',
+    language: 'React',
+    stargazers_count: 1
+  },
+  {
+    id: 'featured-6',
+    name: '32-Bit Parametrik ALU',
+    html_url: 'https://github.com/kucukrumeysa/32-bit-parametric-alu',
+    description: 'Verilog kullanılarak tasarlanmış, temel aritmetik ve mantıksal işlemleri gerçekleştirebilen 32-bit parametrik donanım (işlemci) modeli.',
+    language: 'Verilog',
+    stargazers_count: 1
+  },
+  {
+    id: 'featured-7',
+    name: 'Karar Ağacı ile Veri Sınıflandırma',
+    html_url: 'https://github.com/kucukrumeysa/karar-agaci-siniflandirma',
+    description: 'Veri setleri üzerinde Decision Tree (Karar Ağacı) makine öğrenimi algoritmaları uygulayarak geliştirilmiş sınıflandırma projesi.',
+    language: 'Python',
+    stargazers_count: 2
+  },
+  {
+    id: 'featured-8',
+    name: '3D Liman Sahnesi (OpenGL)',
+    html_url: 'https://github.com/kucukrumeysa/Computer-Graphics-Port-Pier-3D-Scene',
+    description: 'Python ve OpenGL ile geliştirilmiş, 3 boyutlu obje yükleme, ışıklandırma ve kaplama tekniklerinin uygulandığı liman simülasyonu.',
+    language: 'Python',
+    stargazers_count: 1
   }
 ]
 
