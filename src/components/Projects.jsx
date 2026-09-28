@@ -85,6 +85,22 @@ const FEATURED_PROJECTS = [
     description: 'Python ve OpenGL ile geliştirilmiş, 3 boyutlu obje yükleme, ışıklandırma ve kaplama tekniklerinin uygulandığı liman simülasyonu.',
     language: 'Python',
     stargazers_count: 1
+  },
+  {
+    id: 'featured-9',
+    name: 'PitWall: Takım Görev Yönetim Platformu',
+    html_url: 'https://github.com/kucukrumeysa/pitwall-app',
+    description: 'Formula takımı için özel geliştirilmiş, Django REST ve React tabanlı, rol yetkilendirmeli Kanban proje ve görev yönetim uygulaması.',
+    language: 'TypeScript',
+    stargazers_count: 0
+  },
+  {
+    id: 'featured-10',
+    name: 'FS-26 Araç Özelleştirme Stüdyosu',
+    html_url: 'https://github.com/kucukrumeysa/formula-bpp',
+    description: 'Kullanıcıların Formula aracını renk, jant, aero paketleriyle özelleştirip teknik değerleri (0-100 vb.) gördüğü etkileşimli pazarlama sitesi.',
+    language: 'JavaScript',
+    stargazers_count: 0
   }
 ]
 
